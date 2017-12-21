@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="popularCount.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">{{monthType == 'monTimes' ? '推广统计' : '收益统计'}}</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="content-block-title">
+								{{monthType == 'monTimes' ? '累计推广：' + totalNum : '累计收益：￥' + totalNum.toFixed(2)}}
+								<div class="list-select">
+									<input type="text" class="picker-year" v-bind:placeholder="nowYear" readonly id="picker-year" />年
+								</div>
+							</div>
+							<div class="no-data" v-if="extension.length == 0">
+								<i class="iconfont icon-toufangguanli"></i>暂无数据
+							</div>
+							<div class="list-block" v-if="extension.length !== 0">
+								<ul>
+									<li v-for="el in extension">
+										<div class="item-inner"> 
+							                <div class="item-title">{{el.commercialMonth | upperCase}}{{monthType == 'monTimes' ? '月推广次数' : '月收益'}}</div>
+							                <div class="item-after">{{monthType == 'monTimes' ? '' : '￥'}}{{el.commercialNum}}</div>
+							            </div>
+						           </li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>				
+			</div>
+		</div>
+		
+	</body>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="popularCount.js"></script>
+</html>

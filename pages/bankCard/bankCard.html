@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>银行卡管理</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="bankCard.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">银行卡管理</div>
+						<div class="right" @click="addCard">
+							<a href="#" class="link">添加</a>
+						</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<!--暂未添加银行卡-->
+							<div class="no-bank" v-if="!hasCard">
+								<i class="iconfont icon-yinxingqia1"></i>
+								<p>您暂未添加银行卡</p>
+							</div>
+							<!--认证通过的银行卡-->
+							<div class="bank-identity" v-if="hasCard">
+								<div class="bank-show" @click="editBank">
+									<i v-if="!isIdenty" class="iconfont icon-xiazai"></i>
+									<div class="bank-title"><img class="bank-img" v-bind:src="bankImg" alt="" /><p>{{bankType}}</p><span v-if="isIdenty">已认证</span><span v-if="!isIdenty">审核中</span>
+									</div>
+									<p class="bank-num">**** **** **** {{bankNo | hideBankNo}}</p>
+								</div>
+								<!--审核失败-->
+								<!--<p class="bank-hint"><a href="tel:123456;"></a>如有改动请联系客服</p>-->
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<script src="../../lib/framework7.js"></script>
+		<script src="../../lib/vue.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="bankCard.js"></script>
+	</body>
+</html>

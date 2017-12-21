@@ -1,0 +1,59 @@
+.no-bank{
+				margin: 10em auto 0;
+				width: 8em;
+				text-align: center;
+				color: #cbc9c9;
+			}
+			.no-bank .icon-yinxingqia1{
+				font-size: 60px;
+			}
+			.bank-show{
+				position: relative;
+				width: 91%;
+				height: 6.25em;
+				padding:1em 10px;
+				box-sizing: border-box;
+				color: #fff;
+				background: url(../../image/bankIcon/bank-bg.png) no-repeat;
+				background-size: 100% 100%;
+				margin:1.125em auto 0;
+				box-shadow: 0 7px 24px #b2c7de;
+				border-radius: 7px;
+			}
+			.bank-title{
+				display: flex;
+				font-size: 16px;
+			}
+			.bank-img{
+				width: 1.5em;
+				height: 1.5em;
+				margin-right: 5px;
+			}
+			.bank-title span{
+				margin-left: 5px;
+				padding: 0 9px;
+				color: #000;
+				line-height: 20px;
+				font-size: 12px;
+				border-radius: 14px;
+				background:#f9f72c;
+				height: 18px;
+			}
+			.bank-num{
+				margin-top: .8em;
+				font-size: 15px;
+			}
+			.bank-hint{
+				margin-top: .8em;
+				color: #888;
+				text-align: right;
+				padding-right: 20px;
+				font-size: 12px;
+			}
+			.bank-show i{
+				position: absolute;
+				top: 5px;
+				right: 10px;
+				font-size: 50px;
+				opacity: .64;
+			}

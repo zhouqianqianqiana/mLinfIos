@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="qrcode.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+           		 	<div class="navbar-inner navbar-on-center">
+    					<div class="left" onclick="closeFrame()">
+    						<a class="back link" >
+    							<i class="iconfont icon-fenxiang"></i>
+    							<span>返回</span>
+    						</a>
+    					</div>
+    					<div class="center">扫描二维码</div>
+  					</div>
+          		</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="index" class="page">
+						<div class="page-content">
+							<!--扫描-->
+						    <div class="mask">
+						        <div class="mask-top"></div>
+						        <div class="mask-middle">
+						            <div class="mask-qr">
+						                <div class="qr-jiao"></div>
+						                <div class="qr-line"></div>
+						            </div>
+						        </div>
+						        <div class="mask-bottom"><p>将二维码放入取景栏中，即可自动扫描</p></div>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function closeFrame() {
+			api.execScript({
+	            name: "qrcode",
+	            script: "closeScanner()"
+	        });
+		}
+	</script>
+</html>

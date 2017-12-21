@@ -1,0 +1,77 @@
+.list-block{
+				font-size: 16px;
+				margin: 0;
+			}
+			.list-block li:first-of-type{
+				padding:10px;
+			}
+			.list-block li{
+				padding:0 10px;
+				border-top: 1px solid #e5e5e5;
+			}
+			.list-block li .add-img{
+				position: relative;
+				padding-top: 2.18em;
+				box-sizing: border-box;
+				height: 8em;
+				background: #e5e5e5;
+				color: #fff;
+				text-align: center;
+				background-image: url(../../image/horizontal/adver.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			.add-img p,.add-img i{
+				position: relative;
+				z-index: 9;
+			}
+			.iconfont.icon-xiangji{
+				color: #fff;
+				font-size: 40px;
+			}
+			.list-block input[type=text],.list-block textarea{
+				font-size: 16px;
+			}
+			.mask{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: #000;
+				opacity: .56;
+				top: 0;
+				left: 0;
+			}
+			.list-block .item-inner:after{
+				background: none;
+			}
+			
+			.input-img{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				opacity: 0;
+			}
+			.button{
+				margin: 2em auto;
+				width: 95%;
+			}
+			.button.color-green{
+				background: #4cd964;
+			}
+			html:not(.watch-active-state) .button.button-fill:active{
+				opacity: .8;
+			}
+			.button.active-state, html:not(.watch-active-state) .button:active{
+				background: #4cd964;
+				opacity: .8;
+			}
+			.list-block .item-title.label{
+				width: 21%;
+			}
+			.adv-link{
+				width: 25%;
+			}

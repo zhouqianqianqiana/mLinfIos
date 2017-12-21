@@ -1,0 +1,27 @@
+
+.list-block{
+	margin: 0;
+	background: #fff;
+	font-size: 1.1em;
+}
+.list-block .item-content{
+	padding: 0;
+	min-height: 48px;
+}
+.list-block .item-inner{
+	padding-left: 15px;
+}
+.color-orange{
+	color: #e97c12;
+}
+.chart {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.gene-link{
+	padding:15px;
+	width: 5em;
+}
+.gene-link img{
+	width: 3.5em;
+}

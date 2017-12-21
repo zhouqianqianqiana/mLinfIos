@@ -1,0 +1,46 @@
+.button{
+	border-color: #fff;
+}
+#tab2 .item-subtitle{
+	color: #888;
+}
+.put-times{
+	display: flex;
+	padding: 15px 0 5px;
+	background: #fff;
+	font-size: 1.1em;
+}
+.put-times div{
+	flex: 1;
+	text-align: center;
+}
+.put-times div p:first-of-type{
+	color: #09bb07;
+}
+.content-block-title{
+	margin: 0;
+	padding:15px 15px;
+	color: #000;
+	font-size: 16px;
+}
+.icon-shuxian{
+	color: #223f68;
+}
+#tab1 .list-block{
+	margin: 0;
+}
+.no-coupon{
+	color: #c9c9c9;
+	text-align: center;
+}
+.icon-toufangguanli{
+	font-size: 23px;
+	margin-right: 10px;
+}
+.navbar-through .page-content{
+	padding-top: 44px;
+}
+.stop .item-content{
+	filter:  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}

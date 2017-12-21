@@ -1,0 +1,46 @@
+/*.page-content{
+ overflow: auto;
+  -webkit-overflow-scrolling: touch;	
+}*/
+
+#startTime, #endTime{
+	position: absolute;
+	/*left: 0;*/
+	right: 0;
+	width:100%;
+	top: 0;
+	height: 100%;
+	opacity: 0;
+}
+.color-green{
+	color: #00cc00;
+}
+.weui-cells{
+	font-size: 16px;
+}
+.weui-textarea{
+	font-family: sans-serif;
+}
+.weui-gallery{
+	z-index: 6000;
+}
+.weui-dialog{
+	z-index: 6001;
+}
+.weui-gallery__img{
+	color: transparent;
+}
+.button{
+	margin: 2em auto;
+	width: 95%;
+}
+.button.color-green{
+	background: #4cd964;
+}
+html:not(.watch-active-state) .button.button-fill:active{
+	opacity: .8;
+}
+.button.active-state, html:not(.watch-active-state) .button:active{
+	background: #4cd964;
+	opacity: .8;
+}

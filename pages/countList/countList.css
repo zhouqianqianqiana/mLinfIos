@@ -1,0 +1,41 @@
+.page-content{
+	font-family: sans-serif;
+}
+.list-block{
+	margin: 0;
+}
+.button{
+	border: 1px solid #fff;
+	
+}
+.list-item {
+    display: flex;
+    padding: .8em 1em;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.list-item > div {
+    flex-grow: 1;
+}
+
+.list-item > div:first-child p:first-child {
+    color: #353535;
+    margin-bottom: .6em;
+    font-size: 16px;
+}
+.list-item > div:first-child p{
+    color: #888;
+    font-size: 14px;
+}
+
+.list-item > div:last-child {
+    text-align: right;
+    color: #353535;
+}
+
+.list-item div:last-child {
+    color: #14d630;
+}
+.navbar-through .page-content{
+	padding-top:88px;
+}

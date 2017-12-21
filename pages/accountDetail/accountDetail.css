@@ -1,0 +1,19 @@
+
+.button{
+	border-color:#fff;
+}
+.pay-title{
+	color: #888;
+}
+.pay-item{
+	padding-left: 10px;
+}
+#tab2 .pay-item p:nth-of-type(1), #tab3 .pay-item p:nth-of-type(1){
+	margin-bottom: 10px;
+}
+.color-green{
+	color: #14d630;
+}
+.toolbar-through .page-content{
+	padding-top: 88px;
+}

@@ -1,0 +1,131 @@
+.yiye-account{
+	display: flex;
+	background: #fff;
+	padding: 10px;
+}
+.yiye-account div{
+	flex: 1;
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 1.1em;
+}
+.yiye-account div p:first-of-type{
+	color: #09bb07;
+	line-height: 1.5;
+}
+.yiye-account{
+	margin-bottom: 15px;
+}
+.list-block{
+				margin: 0;
+			}
+			.item-media img{
+				width: 3.4em;
+			}
+			.item-title{
+				font-size: 16px;
+			}
+			.item-subtitle{
+				color: #888;
+			}
+			.content-block-title{
+				margin:0;
+				padding:0 15px;
+				height: 3.1em;
+				line-height: 3.1em;
+				color: #000;
+				font-size: 16px;
+			}
+			.icon-shuxian{
+				color: #223f68;
+				font-size: 19px;
+			}
+			.horizontal-list{
+				overflow-x: scroll;
+			}
+			.horizontal-list:after{
+				content: "";
+				clear: both;
+			}
+			.horizontal-item{
+				float: left;
+				margin:0 5px;
+				position: relative;
+				width: 12.8em;
+				background: #fff;
+				padding:10px;
+				border: 1px solid #dfdfdf;
+				border-radius: 5px;
+			}
+			.g-icon:before{
+				content: "";
+				position: absolute;
+				width: 18px;
+				height: 18px;
+				color: #fff;
+				font-size: 12px;
+				text-align: center;
+				line-height: 18px;
+				top: 0;
+				left: 0;
+				background: #fb7b37;
+				font-style: normal;
+				z-index: 1;
+			}
+			.g-icon.quan-icon:before{
+				content: "券";
+			}
+			.g-icon.adver-icon:before{
+				content: "广";
+				background: #438df0;
+			}
+			.hori-header{
+				position: relative;
+				width: 100%;
+				height:5em;
+				background:#fefdef;
+				
+			}
+			.hori-header.hori-adver{
+				background-image: url(../../image/horizontal/hor_03.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+			.hori-header div:first-of-type img{
+				position: absolute;
+				bottom: 0;
+				left: 10px;
+				height: 4em;
+			}
+			.hori-header div:nth-of-type(2){
+				position: absolute;
+				font-size: 25px;
+				right: 20px;
+				top: 15px;
+			}
+			.hor-title{
+				font-size: 16px;
+				margin:5px 0 10px;	
+				overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			}
+			.color-aaa{
+				color: #aaa;
+			}
+			.no-adver{
+				padding:15px;
+				text-align: center;
+				color: #888;
+				
+			}
+			.no-adver .iconfont{
+				font-size: 25px;
+				color: #C5C5C5;
+				margin-right: 10px;
+			}
+			.list-block .item-inner{
+				display: block;
+				padding-top: 13px;
+			}

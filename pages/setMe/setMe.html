@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人设置</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="setMe.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center" style="left: -6.5px;">个人设置</div>
+						
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="page-content">
+							<div class="list-block no-margin">
+								<div class="list-item" style="line-height: 3.37em;">
+									<div class="item-title">商家头像</div>
+									<div class="item-right merchant-header-img" v-if="merchantLogo != ''" v-bind:style="{backgroundImage: 'url(' + imgUrl + merchantLogo + ')'}"></div>
+									<div class="item-right merchant-header-img" v-if="merchantLogo == ''"></div>
+								</div>
+							</div>
+							<div class="list-block">
+								<div class="list-item">
+									<div class="item-title">店铺名</div>
+									<div class="item-right">{{merchantName}}</div>
+								</div>
+								<div class="list-item">
+									<div class="item-title">店铺地址</div>
+									<div class="item-right">{{merchantAddress}}</div>
+								</div>
+								<div class="list-item">
+									<div class="item-title">登录帐号</div>
+									<div class="item-right">{{telphone}}</div>
+								</div>
+							</div>
+							<div class="list-block">
+								<div class="list-item item-link" open-href="../resetPwd/resetPwd.html" open-name="resetPwd">
+									<div class="item-title weui-cell__ft">修改密码</div>
+								</div>
+							</div>
+							<div class="list-block" @click="loginExit">
+								<div class="list-item item-link" style="text-align: center;color: #f34747;">
+									退出登录
+								</div>
+							</div>
+						</div>
+							
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="setMe.js"></script>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<!--<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">-->
+		<title>My App</title>
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="home.css">
+		<link rel="stylesheet" href="message.css" />
+		<link rel="stylesheet" href="me.css" />
+	</head>
+	<body>
+		
+		<div class="views tabs toolbar-through">
+			<div id="view-1" class="view view-main tab active" data-page="index-1">
+				<div class="navbar">
+					<div class="navbar-inner" open-href="../resetPwd/resetPwd.html" open-name="resetPwd">
+						<div class="center sliding">{{merchantName}}</div>
+					</div>
+				</div>
+				<div class="pages navbar-through">
+					<div data-page="index-1" class="page">
+						<div class="page-content">
+							<section>
+								<div class="func-list">
+									<div @click="openQr"><i class="iconfont icon-erweima"></i>
+										<p>店铺二维码</p>
+									</div>
+									<div open-href="../count/count.html" open-name="count" ><i class="iconfont icon-baiban"></i>
+										<p>财务统计</p>
+									</div>
+									<!--<div  open-href="../popular/popular.html" open-name="popular">
+										<i class="iconfont icon-tuiguang1"></i>
+										<p>异业推广</p>
+									</div>-->
+									<div  open-href="../popularManage/popularManage.html" open-name="popularManage">
+										<i class="iconfont icon-tuiguang1"></i>
+										<p>异业推广</p>
+									</div>
+								</div>
+								<div class="order-list">
+									<div @click="openList">
+										<p>今日收益</p>
+										<p>{{todayIncome}}</p>
+									</div>
+									<div @click="openTodayAmount">
+										<p>今日单量</p>
+										<p>{{todayAmount}}</p>
+									</div>
+									<div @click="openThisMonth">
+										<p>本月收益</p>
+										<p>{{monthIncome}}</p>
+									</div>
+								</div>
+								<div class="function">
+									<div class="items">
+										<div class="item" open-href="../coupon/coupon.html" open-name="coupon" >
+											<img src="../../image/home/preferential.jpg">
+											<p><span>优惠券管理</span><span>发放优惠 拉新客户</span></p>
+										</div>
+										<div class="item" open-href="../setStore/setStore.html" open-name="setStore">
+											<img src="../../image/home/merchantShop.jpg">
+											<p><span>店铺设置</span><span>设置店铺 轻松开店</span></p>
+										</div>
+									</div>
+									<div class="items">
+										<div class="item" open-href="../member/member.html" open-name="member">
+											<img src="../../image/home/myVip.jpg">
+											<p><span>会员管理</span><span>会员推送 回头客多</span></p>
+										</div>
+										<div class="item" open-href="../accountDetail/accountDetail.html" open-name="accountDetail">
+											<img src="../../image/home/fin-detail.jpg">
+											<p><span>账户明细</span><span>账户变化 一清二楚</span></p>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="view-2" class="view tab" data-page="index-2">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="center sliding">消息</div>
+						<div class="subnavbar sliding">
+							<div class="buttons-row">
+								<a href="#tab1" class="button tab-link active">付款消息</a>
+								<a href="#tab2" class="button tab-link ">提现消息</a>
+								<a href="#tab3" class="button tab-link">系统消息</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="tabs-static" class="page with-subnavbar page-on-center">
+						<div class="page-content">
+							<div class="tabs">
+								<div id="tab1" class="infinite-scroll pull-to-refresh-content tab active">
+									<div class="pull-to-refresh-layer">
+										<div class="preloader"></div>
+										<div class="pull-to-refresh-arrow"></div>
+									</div>
+									<div class="list-block">
+										<div class="pay-list">
+											<div class="pay-title">
+												<p>今天</p>
+												<p>共<span class="color-black">123</span>笔</p>
+												<p><span class="color-black">￥123.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-shuoming"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+										</div>
+										<div class="pay-list">
+											<div class="pay-title">
+												<p>今天</p>
+												<p>共<span class="color-black">123</span>笔</p>
+												<p><span class="color-black">￥123.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-wancheng"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+											<div class="pay-item">
+												<p><i class="iconfont icon-shuoming"></i>付款成功<span class="hui">惠</span><span class="expence">￥189.0</span></p>
+												<p>兵哥 12:03:37</p>
+												<p><span>付款金额：￥189.0</span><span>扣点金额：￥0.0</span><span class="reduce">-￥98.0</span></p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="tab2" class="infinite-scroll pull-to-refresh-content tab">
+									<div class="pull-to-refresh-layer">
+										<div class="preloader"></div>
+										<div class="pull-to-refresh-arrow"></div>
+									</div>
+									<div class="pay-list">
+										<div class="pay-item">
+											<p><i class="iconfont icon-wancheng"></i>提现成功</p>
+											<p>中国银行 12：03:35</p>
+											<p>12334355 656 5757 767</p>
+										</div>
+										<div class="pay-item">
+											<p><i class="iconfont icon-shuoming"></i>提现成功</p>
+											<p>中国银行 12：03:35</p>
+											<p>12334355 656 5757 767</p>
+										</div>
+										<div class="pay-item">
+											<p><i class="iconfont icon-shuoming"></i>提现成功</p>
+											<p>中国银行 12：03:35</p>
+											<p>12334355 656 5757 767</p>
+										</div>
+									</div>
+								</div>
+								<div id="tab3" class="infinite-scroll pull-to-refresh-content tab">
+									<div class="pull-to-refresh-layer">
+										<div class="preloader"></div>
+										<div class="pull-to-refresh-arrow"></div>
+									</div>
+									<div class="pay-list">
+										<div class="pay-item">
+											<p><i class="iconfont icon-shouji"></i>系统消息</p>
+											<p>美邻管理员 12:03:34</p>
+											<p>您的资料审核失败，请您重新尝试提交资料进行审核。失败原因：银行卡照片不符合规范。</p>
+										</div>
+										<div class="pay-item">
+											<p><i class="iconfont icon-shouji"></i>系统消息</p>
+											<p>美邻管理员 12:03:34</p>
+											<p>您的资料审核失败，请您重新尝试提交资料进行审核。失败原因：银行卡照片不符合规范。</p>
+										</div>
+										<div class="pay-item">
+											<p><i class="iconfont icon-shouji"></i>系统消息</p>
+											<p>美邻管理员 12:03:34</p>
+											<p>您的资料审核失败，请您重新尝试提交资料进行审核。失败原因：银行卡照片不符合规范。</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="view-3" class="view tab" data-page="index-3">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="center sliding">我的</div>
+						<div class="right">
+							<a href="#" class="screen" style="font-size: 15px;">
+								检查更新
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="list-block media-list">
+								<a href="#" open-href="../setMe/setMe.html" open-name="setMe"  class="item-link item-content">
+									<div class="item-media" v-if="merchantLogo !=''" v-bind:style="{backgroundImage: 'url(' + imgUrl + merchantLogo + ')'}">
+									</div>
+									<div class="item-media" v-if="merchantLogo ==''"></div>
+									<div class="item-inner">
+										<div class="item-title-row">
+											<div class="item-title">{{merchantName}}</div>
+										</div>
+										<span class="merchant-level">{{merchantLevel}}</span>
+										<div class="item-subtitle">{{telphone}}</div>
+									</div>
+								</a>
+							</div>
+							<div class="list-block">
+								<ul>
+									<li>
+										<a href="#" open-href="../account/account.html" open-name="account" class="item-link item-content">
+											<div class="item-inner">
+												<div class="item-title">账户余额（元）
+													<span class="safe-span">账户安全保障中</span>
+													<div class="acount-balance">￥
+														<span class="acount-money">{{balanceAmount}}</span>
+													</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#" open-href="../bankCard/bankCard.html" open-name="bankCard" class="item-link item-content">
+											<div class="item-inner">
+												<div class="item-title">银行卡管理
+
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="list-block margin-top30">
+								<ul>
+									<li style="border-top: 1px solid #e5e5e5;">
+										<a href="#" open-href="../setSound/setSound.html" open-name="setSound" class="item-link item-content">
+											<div class="item-inner">
+												<div class="item-title">语音播报</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;" open-href="../customerService/customerService.html" open-name="customerService"  class="item-link item-content">
+											<div class="item-inner">
+												<div class="item-title">客户中心</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			
+			<div class="toolbar tabbar tabbar-labels">
+				<div class="toolbar-inner">
+					<a id="home" href="#view-1" class="tab-link active">
+						<i class="iconfont icon-zhuye"></i>
+						<p>首页</p>
+					</a>
+					<a href="#view-2" class="tab-link ">
+						<i class="iconfont icon icon-xiaoxi "><span class="badge bg-red"></span></i>
+						<p>消息</p>
+					</a>
+					<a id="home" href="#view-3" class="tab-link ">
+						<i class="iconfont icon-wode"></i>
+						<p>我的</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../lib/framework7.js"></script>
+		<script src="../../lib/vue.js"></script>
+		<script src="../../js/app.js"></script>
+		<script type="text/javascript" src="../../js/jpush.js"></script>
+		<script src="home.js"></script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #223f68;
+}
+
+.page {
+    background-color: #f7f7f7;
+}
+.list-block{
+    margin-top: 0;
+}
+.list-block li{
+ background-color: #FFFFFF;
+}
+.chart {
+    margin-top: 2em;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.chart-title{
+    color: #353535;
+    font-size: 16px;
+    padding: 16px 16px 0;
+}

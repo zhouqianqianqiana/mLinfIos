@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>明细列表</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="countList.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">明细列表</div>
+						<div class="right">{{date}}</div>
+						<div class="subnavbar sliding">
+						      <div class="buttons-row">
+						      	<a href="#tab1" class="button tab-link active">未结算</a>
+						      	<a href="#tab2" class="button tab-link">已结算</a>
+						      </div>  
+						</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="tabs-static with-subnavbar" class="tabs page page-on-center">
+						<div id="tab1"class="page-content infinite-scroll pull-to-refresh-content tab active">
+							<!-- Default pull to refresh layer-->
+						    <div class="pull-to-refresh-layer">
+							    <div class="preloader"></div>
+							    <div class="pull-to-refresh-arrow"></div>
+						    </div>
+							<div class="list-block">
+								<div v-if="notDraw.length == 0" style="text-align: center;color: #888;padding-top: 20px;"><i class="iconfont icon-toufangguanli"></i>暂无数据</div>
+								<ul v-if="notDraw.length != 0">
+									<li class="list-item" v-for="el in notDraw">
+							            <div>
+							                <p>{{el.body}}</p>
+							                <p>消费时间： {{el.payTime}}</p>
+							                <p>消费金额：￥{{el.original_amount}}</p>
+							                <p>支付金额：￥{{el.amount}}</p>
+							                <p>佣金金额：-￥{{el.platProfit.profitAmt}}</p>
+							            </div>
+							            <div>￥{{el.platProfit.merAmt}}</div>
+							       </li>
+								</ul>
+							</div>
+						</div>
+						<div id="tab2"class="page-content infinite-scroll pull-to-refresh-content tab">
+							<!-- Default pull to refresh layer-->
+						    <div class="pull-to-refresh-layer">
+							    <div class="preloader"></div>
+							    <div class="pull-to-refresh-arrow"></div>
+						    </div>
+						    
+							<div class="list-block">
+								<div v-if="hasDraw.length == 0" style="text-align: center;color: #888;padding-top: 20px;"><i class="iconfont icon-toufangguanli"></i>暂无数据</div>
+								<ul v-if="hasDraw.length != 0">
+									<li class="list-item" v-for="el in hasDraw">
+							            <div>
+							                <p>{{el.body}}</p>
+							                <p>消费时间： {{el.payTime}}</p>
+							                <p>消费金额：￥{{el.original_amount}}</p>
+							                <p>支付金额：￥{{el.amount}}</p>
+							                <p>佣金金额：-￥{{el.platProfit.profitAmt}}</p>
+							            </div>
+							            <div>￥{{el.platProfit.merAmt}}</div>
+							      </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="countList.js"></script>
+</html>

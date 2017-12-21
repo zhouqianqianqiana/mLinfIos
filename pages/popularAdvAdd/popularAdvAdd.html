@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>广告详情</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="popularAdvAdd.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">广告添加</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="list-block">
+								<ul>
+									<li>
+										<div  style="background-position: center;background-size: cover;" v-bind:style="{backgroundImage: 'url(' + imgUrl + advInfo.pic + ')'}" class="add-img" id="uploaderCustom">
+											<i class="iconfont icon-xiangji"></i>
+											<input type="file" class="input-img" type="file" accept="image/*">
+											<p>请上传258*686像素的广告图片</p>
+										</div>
+									</li>
+									<li style="padding-top: 0;padding-bottom: 0;border-top: 1px solid #e5e5e5;">
+										<div class="item-inner"> 
+							                <div class="item-title label">广告标题</div>
+							                <div class="item-input">
+							                  <input v-model="advInfo.title" maxlength="30" type="text" placeholder="请输入您的广告标题" class="">
+							                </div>
+							            </div>
+									</li>
+									<li>
+										<div class="item-input">
+						                  <textarea v-model="advInfo.content" maxlength="50" placeholder="请输入您的广告内容"></textarea>
+						                </div>
+									</li>
+									<li style="padding-top: 0;padding-bottom: 0;border-top: 1px solid #e5e5e5;">
+										<div class="item-inner"> 
+							                <div class="item-title label">广告链接 </div><span id="advLink" class="adv-link">http://</span>
+							                <div class="item-input">
+							                  <input v-model="advInfo.link" type="text" onkeyup="this.value=this.value.replace(/[;；,，]/g,'')" placeholder="请复制您的广告链接" class="">
+							                </div>
+							            </div>
+									</li>
+								</ul>
+							</div>
+							<a href="#" @click="save" class="button button-big button-fill color-green">保存</a>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../lib/weui.min.js"></script>
+	<script src="../../js/advHandle.js"></script>
+	<script src="popularAdvAdd.js"></script>
+</html>

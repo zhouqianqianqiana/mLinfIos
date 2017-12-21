@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>财务统计</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../js/mDate/mDate.css" />
+		<link rel="stylesheet" href="count.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left">
+							<a close href="#" class="link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">财务统计</div>
+						<div class="right"><a href="#" class="link ">2017</a></div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div id="mDate">
+                    		</div>
+                    		<div class="list-block">
+		                        <ul>
+		                            <li><a href="#" @click="openList" class="item-link item-content">
+		                                <div class="item-inner">
+		                                    <div class="item-title">￥{{money}}</div>
+		                                    <div class="item-after">共{{num}}笔</div>
+		                                </div>
+		                            </a>
+		                            </li>
+		                        </ul>
+		                    </div>
+		
+		                    <div class="chart">
+		                        <div class="chart-title">交易额统计：<span style="color: #0c92f3;">¥{{totalMoney}}</span></div>
+		                        <canvas id="c1" style="width: 100%;"></canvas>
+		                    </div>
+		
+		                    <div class="chart">
+		                        <div class="chart-title">订单统计：<span style="color: #e97c12;">{{totalNum}}</span></div>
+		                        <canvas id="c2" style="width: 100%;"></canvas>
+		                    </div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/mDate/mDate.js"></script>
+	<script src="../../lib/g2-mobile.js"></script>
+	<script src="../../js/acount.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="count.js"></script>
+</html> 

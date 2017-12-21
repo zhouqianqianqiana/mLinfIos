@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>账户明细</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../main/message.css" />
+		<link rel="stylesheet" href="accountDetail.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div id="app" class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">账户明细</div>
+						<div class="subnavbar sliding">
+      						<div class="buttons-row">
+      							<a href="#tab1" class="button tab-link active">余额变化</a>
+      							<a href="#tab2" class="button tab-link ">未提现</a>
+      							<a href="#tab3" class="button tab-link">已提现</a>
+      						</div>
+    					</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="tabs-static with-subnavbar" class="page tabs page-on-center">
+				        <div id="tab1" class="page-content infinite-scroll pull-to-refresh-content tab  active">
+						    <div class="pull-to-refresh-layer">
+							    <div class="preloader"></div>
+							    <div class="pull-to-refresh-arrow"></div>
+						    </div>
+							<div class="pay-list">
+								<div style="text-align: center;color: #888;font-size: 17px;line-height: 30px;" v-if="amountChange.length == 0">无数据</div>
+								<div class="pay-item" v-for="el in amountChange">
+									<p>{{el.remark}}<span class="expence">￥{{el.tran_amount}}</span></p>
+									<p>{{el.create_date | formatDate}}</p>
+									<p><span>余额：￥{{el.current_amount? el.current_amount.toFixed(2) : 0}}</span></p>
+								</div>
+							</div>
+				        </div>
+				        <div id="tab2" class="page-content infinite-scroll pull-to-refresh-content tab ">
+						    <div class="pull-to-refresh-layer">
+							    <div class="preloader"></div>
+							    <div class="pull-to-refresh-arrow"></div>
+						    </div>
+				          	<div class="pay-list">
+				          		<div class="pay-title">未结算金额： ￥{{unAmount}}</div>
+				          		<div style="text-align: center;color: #888;font-size: 17px;line-height: 30px;" v-if="unWithdraw.length == 0">无数据</div>
+								<div class="pay-item" v-for="el in unWithdraw">
+									<p>{{el.nickname}}<span class="expence color-green">￥{{el.platProfit.merAmt}}</span></p>
+									<p>消费时间：{{el.payTime}}</p>
+									<p>消费金额： ￥{{el.original_amount}}</p>
+									<p>支付金额： ￥{{el.amount}}</p>
+									<p><span>佣金余额：-￥{{el.platProfit.profitAmt}}</span></p>
+								</div>
+								
+							</div>
+				        </div>
+				        <div id="tab3" class="page-content infinite-scroll pull-to-refresh-content tab">
+							    <div class="pull-to-refresh-layer">
+								    <div class="preloader"></div>
+								    <div class="pull-to-refresh-arrow"></div>
+							    </div>
+					          	<div class="pay-list">
+									<div class="pay-title">已结算金额： ￥{{hasAmount}}</div>
+									<div style="text-align: center;color: #888;font-size: 17px;line-height: 30px;" v-if="Withdraw.length == 0">无数据</div>
+									<div class="pay-item" v-for="el in Withdraw">
+										<p>{{el.nickname}}<span class="expence color-green">￥{{el.platProfit.merAmt}}</span></p>
+										<p>消费时间：{{el.payTime}}</p>
+										<p>消费金额： ￥{{el.original_amount}}</p>
+										<p>支付金额： ￥{{el.amount}}</p>
+										<p><span>佣金余额：-￥{{el.platProfit.profitAmt}}</span></p>
+									</div>
+									
+								</div>
+					        
+					        </div>
+					     
+					</div>
+					
+				</div>				
+			</div>
+		</div>
+		<script src="../../lib/framework7.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="accountDetail.js"></script>
+	</body>
+</html>

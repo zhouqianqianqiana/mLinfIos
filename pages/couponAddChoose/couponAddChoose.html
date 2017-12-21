@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加优惠券</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+	    <link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+	    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	    <style>
+	    	.item-media img{
+	    		width: 3.75em;
+	    	}
+	    	.list-block .item-subtitle{
+	    		white-space: normal;
+	    		font-size: 14px;
+	    		color: #888;
+	    	}
+	    	.list-block .item-inner{
+	    		display: block;
+	    	}
+	    </style>
+	</head>
+		<body>
+			<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">添加优惠券</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="list-block ">
+						        <ul>
+						          <li>
+						          	
+						          	
+						          	<a href="#" class="item-link item-content" onclick="openCouponAdd('commercial_discount')">
+						              <div class="item-media"><img src="../../image/coupon/add-coupon_03.png"></div>
+						              <div class="item-inner">
+						                <div class="item-title-row">
+						                  <div class="item-title">折扣券</div>
+						                </div>
+						                <div class="item-subtitle">为您提供添加折扣券，您可以添加折扣券，用户领取后满足条件可到店消费抵现。</div>
+						              </div>
+						          	</a>
+						          </li>
+						          <li>
+						          	<a href="#" class="item-link item-content" onclick="openCouponAdd('commercial_full_minus')">
+						              <div class="item-media"><img src="../../image/coupon/add-coupon_06.png"></div>
+						              <div class="item-inner">
+						                <div class="item-title-row">
+						                  <div class="item-title">满减券</div>
+						                </div>
+						                <div class="item-subtitle">为您提供添加满减券，您可以添加满减券，用户领取后满足条件可到店消费抵现。</div>
+						              </div>
+						          	</a>
+						          </li>
+						          <li>
+						          	<a href="#" class="item-link item-content" onclick="openCouponAdd('commercial_food_coupon')">
+						              <div class="item-media"><img src="../../image/coupon/add-coupon_09.png" ></div>
+						              <div class="item-inner">
+						                <div class="item-title-row">
+						                  <div class="item-title">菜品券</div>
+						                </div>
+						                <div class="item-subtitle">为您提供添加店内菜品券，您添加菜品券，用户领取券到店后服务员协助消券即可。</div>
+						              </div>
+						          	</a>
+						          </li>
+						          <!--<li>
+						          	<a href="#" class="item-link item-content" onclick="openCouponAdd('chit'})">
+						              <div class="item-media"><img src="../../image/coupon/add-coupon_11.png"></div>
+						              <div class="item-inner">
+						                <div class="item-title-row">
+						                  <div class="item-title">代金券</div>
+						                </div>
+						                <div class="item-subtitle">为您提供添加店内代金券，您可以添加代金券用户领取该券到店消费后可抵扣一定金额。</div>
+						              </div>
+						          	</a>
+						          </li>-->
+						        </ul>
+						      </div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		
+		
+		
+		<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script>
+	var f7 = new Framework7();
+		function openCouponAdd(type) {
+			api.openWin({
+				name: 'popularCouponAdd',
+				url: '../popularCouponAdd/popularCouponAdd.html',
+				pageParam: {
+					type: type
+				}
+			});
+		}
+	</script>
+	</body>
+</html>

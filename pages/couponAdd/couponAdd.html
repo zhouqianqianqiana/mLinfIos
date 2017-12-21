@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加优惠券</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="couponAdd.css" />
+		<script src="../../lib/weui.min.js"></script>
+	</head>
+		<body >
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">{{type[type_code]}}券添加</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="weui-cells">
+								<a class="weui-cell weui-cell_access" href="javascript:;">
+					                <div class="weui-cell__bd">
+					                    <p>开始时间</p>
+					                </div>
+					                <div class="weui-cell__ft">
+					                	{{bTime}}
+					                </div>
+					                <input v-on:change="time" v-model="couponData.startTime" type="date" id="startTime" />
+					            </a>
+					            <a class="weui-cell weui-cell_access" href="javascript:;">
+					                <div class="weui-cell__bd">
+					                    <p>结束时间</p>
+					                </div>
+					                <div class="weui-cell__ft">
+					                	{{eTime}}
+					                </div>
+					                <input type="date" v-on:change="time" v-model="couponData.endTime" id="endTime" value="" />
+					            </a>
+							</div>
+							<!--代金券金额-->
+							<div class="weui-cells" v-if="type_code == 'chit'">
+								<div class="weui-cell">
+					                <div class="weui-cell__hd"><label class="weui-label">代金券金额</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input" type="number"  pattern="[0-9]*" placeholder="请输入发放代金券金额" emptytips="请输入发放金额" notmatchtips="请输入正确的金额" required>
+					                </div>
+					            </div>
+							</div>
+							<!--折扣券-->
+							<div class="weui-cells" v-if="type_code == 'discount'">
+								<div class="weui-cell">
+					                <div class="weui-cell__hd"><label class="weui-label">全场折扣</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input" @keyup="discountInput"  tabindex="1" type="number" maxlength="4"
+					                    	onkeyup="this.value=this.value.replace(/^[1-9]{2}(\.\d)?/g,'')" 
+					                    	v-model="couponData.discount"placeholder="请输入折扣（1-9.9）" required>
+					                </div>
+					            </div>
+							</div>
+							<!--满减券-->
+							<div class="weui-cells" v-if="type_code == 'full_minus'">
+								<div class="weui-cell">
+					                <div class="weui-cell__hd"><label class="weui-label" style="width: 50px;">满</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input" type="number" maxlength="7" v-model="couponData.fullAmount" pattern="^\d{1,5}$" @keyup="fullAmount" placeholder="(1-99999)" onkeyup="this.value=this.value.replace(/\D/g,'')" required>
+					                </div>
+					                <div class="weui-cell__hd"><label class="weui-label"  style="width: 50px;">减</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input" type="number" maxlength="7" @keyup="minusAmount"  v-model="couponData.minusAmount" maxlength="5" pattern="^\d{1,5}$" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="(1-99999)" required>
+					                </div>
+					            </div>
+							</div>
+							<!--菜品券-->
+							<div class="weui-cells" v-if="type_code == 'food_coupon'">
+								<div class="weui-cell">
+					                <div class="weui-cell__bd">
+					                    <textarea class="weui-textarea" placeholder="请输入要赠送的菜品名，菜品数量等内容" v-model="couponData.description" maxlength="50" rows="4"></textarea>
+					                    <div class="weui-textarea-counter"><span class="color-green">{{couponData.description.length}}</span>/50</div>
+					                </div>
+					            </div>
+							</div>
+							<div  class="weui-cells">
+								<div v-if="type_code != 'food_coupon'" class="weui-cell weui-cell_select weui-cell_select-after">
+					                <div class="weui-cell__bd">优惠券范围</div>
+					                <div class="weui-cell__ft">
+					                    <select class="weui-select" v-model="couponData.discount_area">
+					                    	<option v-for="el in discount" v-bind:value="el.val">无限制</option>
+					                    </select>
+					                </div>
+					            </div>
+					            <div v-if="type_code != 'food_coupon'" class="weui-cell weui-cell_select weui-cell_select-after">
+					                <div class="weui-cell__bd">使用时间</div>
+					                <div class="weui-cell__ft">
+					                    <select class="weui-select">
+					                    	<option value="0">营业时间</option>
+					                    </select>
+					                </div>
+					            </div>
+					            <div class="weui-cell">
+					                <div class="weui-cell__hd"><label class="weui-label">发放数量</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input"  tabindex="2" type="tel" @keyup="numInput" onkeyup="this.value=this.value.replace(/\D/g,'')" v-model="couponData.count" pattern="^[1-9]\d{0,3}$" placeholder="请输入发放数量" emptytips="请输入发放数量" notmatchtips="请输入正确的发放数量" required>
+					                </div>
+					            </div>
+
+					            <!--菜品券添加图片-->
+					            <div v-if="type_code == 'food_coupon'" style="margin-top: 0;" class="weui-cells weui-cells_form" id="uploaderCustom">
+					            	<div class="weui-cell">
+					            		<div class="weui-cell__bd">
+					            			<div class="weui-uploader">
+					            				<div class="weui-uploader__hd">
+					            					<p class="weui-uploader__title">图片上传</p>
+					            					<div class="weui-uploader__info"><span id="uploadCount">0</span>/1</div>
+					            				</div> <div class="weui-uploader__bd">
+					            					<ul class="weui-uploader__files" id="uploaderCustomFiles">
+
+					            					</ul>
+					            					<div class="weui-uploader__input-box">
+					            						<input id="uploaderCustomInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+					            					</div>
+					            				</div>
+					            			</div>
+					            		</div>
+					            	</div>
+					            </div>
+							</div>
+							<div class="weui-cells">
+								<div class="weui-cell">
+					                <div class="weui-cell__bd">
+					                    <textarea class="weui-textarea" v-model="couponData.store_limit_des" placeholder="店内限制（可选）" maxlength="50" rows="4"></textarea>
+					                    <div class="weui-textarea-counter"><span class="color-green">{{couponData.store_limit_des.length}}</span>/50</div>
+					                </div>
+					            </div>
+							</div>
+							<!--领券当天格日用 支付后自动推送-->
+							<div class="weui-cells">
+								<div class="weui-cell weui-cell_switch">
+					                <div class="weui-cell__bd">领券当天隔日用</div>
+					                <div class="weui-cell__ft">
+					                    <label for="nextDayUse" class="weui-switch-cp">
+					                        <input id="nextDayUse" class="weui-switch-cp__input" v-model="couponData.nextDayUse" type="checkbox" checked="checked">
+					                        <div class="weui-switch-cp__box"></div>
+					                    </label>
+					                </div>
+					            </div>
+					            <div class="weui-cell weui-cell_switch">
+					                <div class="weui-cell__bd">支付后自动推送</div>
+					                <div class="weui-cell__ft">
+					                    <label for="auto_push" class="weui-switch-cp">
+					                        <input id="auto_push" class="weui-switch-cp__input" v-model="couponData.auto_push" type="checkbox" checked="checked">
+					                        <div class="weui-switch-cp__box"></div>
+					                    </label>
+					                </div>
+					            </div>
+							</div>
+							<!--分享-->
+							<div class="weui-cells">
+								<div class="weui-cell">
+					                <div class="weui-cell__hd"><label class="weui-label">分享标题</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input" tabindex="3" v-model="couponData.share_title" type="text" onkeyup="this.value=this.value.replace(/[;]/g,'')" maxlength="20" placeholder="请输入朋友圈分享标题（可选）">
+					                </div>
+					            </div>
+					            <div class="weui-cell">
+					                <div class="weui-cell__bd">
+					                    <textarea class="weui-textarea" tabindex="4" v-model="couponData.share_content" placeholder="请输入朋友圈分享内容" maxlength="50" rows="4"></textarea>
+					                    <div class="weui-textarea-counter"><span class="color-green">{{couponData.share_content.length}}</span>/50</div>
+					                </div>
+					            </div>
+
+							</div>
+							<label for="agree" class="weui-agree">
+					            <input id="agree" type="checkbox"  v-model="agree" class="weui-agree__checkbox" required="required" emptytips="请同意美邻协议">
+					            <span class="weui-agree__text">
+					                我已阅读并遵守<a href="javascript:void(0);">《美邻优惠券发放规则》</a>
+					            </span>
+					        </label>
+							 <a href="#" @click="submit" class="button button-big button-fill color-green">提交</a> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script type="text/javascript" src="../../lib/vue.js"></script>
+	<script src="../../js/formVerify.js"></script>
+	<script src="couponAdd.js"></script>
+	</body>
+</html>

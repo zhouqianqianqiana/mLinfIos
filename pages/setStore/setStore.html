@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>店铺设置</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<script src="../../lib/weui.min.js"></script>
+		<link rel="stylesheet" href="setStore.css" />
+	</head>
+		<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">店铺设置</div>
+						<div class="right">
+							<a href="#" @click="save" class="link">保存</a>
+						</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+		                    <div class="weui-cells">
+		                        <div id="uploader" class="weui-cell">
+		                            <div class="weui-cell__bd">
+		                                <div class="weui-uploader">
+		                                    <div class="weui-uploader__hd">
+		                                        <div class="weui-uploader__title">
+		                                            店铺照片
+		                                            <div class="weui-uploader__subtitle">展示您店面照片或店内美食</div>
+		                                        </div>
+		                                        <div class="weui-uploader__info"><span id="uploadCount">0</span>/5</div>
+		                                    </div>
+		                                    <div class="weui-uploader__bd">
+		                                        <ul class="weui-uploader__files" id="uploaderFiles">
+		<!--<li class="weui-uploader__file weui-uploader__file_status" data-id="2" style="background-image: url(&quot;blob:https://weui.io/bbcd846b-783f-4fa1-abd6-6d91422a8826&quot;);"> <div class="weui-uploader__file-content"><i class="weui-icon-warn"></i></div> </li>-->
+		                                        </ul>
+		
+		                                        <div class="weui-uploader__input-box">
+		                                            <input id="uploaderInput" class="weui-uploader__input" type="file"
+		                                                   accept="image/*" multiple="">
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		
+		
+		                    <div class="list-block">
+		                        <ul>
+		                            <li>
+		                                <div class="item-link item-content">
+		                                    <label for="beginTime" class="item-inner">
+		                                        <div class="item-title">开店时间</div>
+		                                        <div class="item-after">{{beginText}}</div>
+		                                        <input v-model="openTime" @change="changeTime" id="beginTime" class="time"
+		                                               type="time">
+		                                    </label>
+		                                </div>
+		                            </li>
+		                            <li>
+		                                <div class="item-link item-content">
+		                                    <label for="endTime" class="item-inner">
+		                                        <div class="item-title">关店时间</div>
+		                                        <div class="item-after">{{endText}}</div>
+		                                        <input v-model="closeTime" @change="changeTime" id="endTime" class="time"
+		                                               type="time">
+		                                    </label>
+		                                </div>
+		                            </li>
+		                        </ul>
+		                    </div>
+		
+		                    <div class="weui-cells weui-cells_form">
+		                        <div class="weui-cell">
+		                            <div class="weui-cell__bd">
+		                                    <textarea v-model="merchantInfo" class="weui-textarea" maxlength="50"
+		                                              placeholder="请输入您的店铺介绍"
+		                                              rows="3"></textarea>
+		                                <div class="weui-textarea-counter"><span>{{merchantInfo.length}}</span>/50</div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<script src="../../lib/framework7.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="setStore.js"></script>
+	</body>
+</html>

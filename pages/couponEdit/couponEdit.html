@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加优惠券</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="../couponAdd/couponAdd.css" />
+		<style>
+			.no-border .weui-cell__ft:after{
+				border:0;
+			}
+		</style>
+	</head>
+		<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">优惠券编辑</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="weui-cells">
+								<a class="weui-cell no-border weui-cell_access" href="javascript:;">
+					                <div class="weui-cell__bd">
+					                    <p>开始时间</p>
+					                </div>
+					                <div class="weui-cell__ft">
+					                	{{bTime}}
+					                </div>
+					            </a>
+					            <a class="weui-cell weui-cell_access" href="javascript:;">
+					                <div class="weui-cell__bd">
+					                    <p>结束时间</p>
+					                </div>
+					                <div class="weui-cell__ft">
+					                	{{eTime}}
+					                </div>
+					                <input type="date" v-on:change="changeTime" v-model="couponData.end_time" name="endTime" id="endTime" value="" />
+					            </a>
+							</div>
+							
+							
+							<div  class="weui-cells">
+								
+					            <div class="weui-cell">
+					                <div class="weui-cell__hd"><label class="weui-label">发放数量</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input" type="tel" @keyup="numInput" onkeyup="this.value=this.value.replace(/\D/g,'')" v-model="couponData.num"  placeholder="请输入发放数量"  required>
+					                </div>
+					            </div>
+					            
+					            
+							</div>
+							<div class="weui-cells">
+								<div class="weui-cell">
+					                <div class="weui-cell__bd">
+					                    <textarea class="weui-textarea" v-model="couponData.store_limit_des" placeholder="店内限制（可选）" maxlength="50" rows="4"></textarea>
+					                    <div class="weui-textarea-counter"><span class="color-green">{{couponData.store_limit_des.length}}</span>/50</div>
+					                </div>
+					            </div>
+							</div>
+							
+							<!--分享-->
+							<div class="weui-cells">
+								<div class="weui-cell">
+					                <div class="weui-cell__hd"><label class="weui-label">分享标题</label></div>
+					                <div class="weui-cell__bd">
+					                    <input class="weui-input" v-model="couponData.share_title" type="text" onkeyup="this.value=this.value.replace(/[;]/g,'')" maxlength="20" placeholder="请输入朋友圈分享标题（可选）">
+					                </div>
+					            </div>
+					            <div class="weui-cell">
+					                <div class="weui-cell__bd">
+					                    <textarea class="weui-textarea" v-model="couponData.share_content" placeholder="请输入朋友圈分享内容" maxlength="50" rows="4"></textarea>
+					                    <div class="weui-textarea-counter"><span class="color-green">{{couponData.share_content.length}}</span>/50</div>
+					                </div>
+					            </div>
+					            
+					            
+							</div>
+							 <a href="#" @click="submit" class="button button-big button-fill color-green">提交</a> 
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script src="../../js/app.js"></script>
+	<script type="text/javascript" src="../../lib/vue.js"></script>
+	<script src="couponEdit.js"></script>
+</html>

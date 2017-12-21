@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>本店会员</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="memberList.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div close class="left"><a href="#" class="back link"><i class="iconfont icon-fenxiang"></i> <span>返回</span></a></div>
+						<div class="center" style="font-weight: normal; left: 0px;">本店会员</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content infinite-scroll pull-to-refresh-content">
+							<div class="pull-to-refresh-layer">
+								<div class="preloader"></div>
+								<div class="pull-to-refresh-arrow"></div>
+							</div>
+							<div class="content-block-title">*本店会员：{{totalNum}}人</div>
+							
+							<div class="list-block media-list">
+								<ul>
+									<li v-for="el in vipList">
+										<div class="item-content">
+							              <div class="item-media" v-if="el.vipAvatar" v-bind:style="{backgroundImage: 'url(' + el.vipAvatar + ')'}"></div>
+							              <div class="item-media" v-if="!el.vipAvatar"></div>
+							              <div class="item-inner">
+							                <div class="item-title-row">
+							                  <div class="item-title">{{el.vipName}}</div>
+							                  <div class="item-after">{{el.joinTime}}</div>
+							                </div>
+							                <div class="item-subtitle">{{el.vipTelephone}}</div>
+							              </div>
+							            </div>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="memberList.js"></script>
+</html>

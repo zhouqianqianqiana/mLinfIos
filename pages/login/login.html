@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Hello APP</title>
+    <link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+    <!--<link rel="stylesheet" href="../../css/weui.min.css" />-->
+    <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+	<div class="views">
+		<div class="view view-main">
+			<div class="pages navbar-through toolbar-through">
+				<div class="page">
+					<div class="page-content">
+						 <div class="page-block">
+							<div class="login-img">
+								<img src="../../image/login/login-logo.png" alt="" />
+							</div>
+							<div class="login-content">
+								<div class="login-input">
+									<img id="telImg" class="input-img" src="../../image/login/login_tel.png" alt="" />
+									<input type="tel" class="weui-input" v-on:input="inputOk" v-model="telphone" list="usernames" placeholder="请输入您的手机号" maxlength="11" />
+								</div>
+								<div class="login-input">
+									<img id="pwdImg" class="input-img" src="../../image/login/login_pwd.png" alt="" />
+									<input type="password" v-model="pwd" v-on:input="inputOk" class="weui-input" placeholder="请输入您的密码" />
+
+								</div>
+								<div class="login-input" id="getKaptcha" v-if="showCaptcha">
+									<input type="text" v-model="kaptcha" maxlength="4"  class="weui-input" onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="请输入图片验证码" maxlength="4" />
+									<img src="" id="kaptchaImg" onclick="getKaptcha()" alt="" style="vertical-align: middle;"/>
+								</div>
+								<p class="forget-pwd"><a href="#" open-href="../resetPwd/resetPwd.html" open-name="resetPwd">忘记密码？</a></p>
+								<a href="#" id="home" @click="submit" class="login-disable">登录</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../../lib/framework7.js"></script>
+<script src="../../lib/vue.js"></script>
+<script src="../../js/app.js"></script>
+<script src="login.js"></script>
+</html>

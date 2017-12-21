@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../coupon/coupon.css" />
+		<link rel="stylesheet" href="popularCoupon.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center sliding" style="left: -6.5px; transform: translate3d(0px, 0px, 0px);">
+      						<div class="buttons-row">
+      							<a href="#tab1" class="button tab-link active">投放中</a>
+      							<a href="#tab2" class="button tab-link">已失效</a>
+      						</div>
+    					</div>
+						<div class="right"><a href="#" open-href="../couponAddChoose/couponAddChoose.html" open-name="couponAddChoose" class="link ">添加</a></div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="tabs-static with-subnavbar" class="page tabs page-on-center">							
+						<div id="tab1" class="page-content infinite-scroll pull-to-refresh-content tab active">
+							<div class="pull-to-refresh-layer">
+							    <div class="preloader"></div>
+							    <div class="pull-to-refresh-arrow"></div>
+						    </div>
+						    
+							<div class="content-block-title">
+								<i class="iconfont icon-shuxian"></i>正在投放
+							</div>
+							<!--无优惠券-->
+							<div class="list-block" v-if="isPutting.length == 0">
+								<div class="no-coupon"><i class="iconfont icon-toufangguanli"></i>暂无投放</div>
+							</div>
+							<div class="list-block media-list sortable" v-if="isPutting.length !== 0">
+								<ul>
+									<li v-for="el in isPutting" v-if="el.merchantNum">
+										<div class="item-content" @click="openDetail(el)">
+							            	<div class="item-media"><img v-bind:src="imgUrl+typeImg[(el.type_code)]+png" width="80"></div>
+							            	<div class="item-inner">
+							                	<div class="item-title-row">
+							                		<div class="item-title">类型：{{el.type.slice(0,2)}}券</div>
+							                	</div>
+							                	<div class="item-subtitle">{{{'折扣':el.discount+'折','满减':'满'+el.full_amount+'减'+el.minus_amount
+                                            ,'菜品券':el.description}[el.type]}}</div>
+							                	<div class="item-text">投放点：{{el.merchantNum}}</div>
+							                	<div class="item-text">已投放次数：{{el.promotCommercialNum}}</div>
+							              	</div>
+							            </div>
+									</li>
+									
+								</ul>
+							</div>
+							<div class="content-block-title">
+								<i class="iconfont icon-shuxian"></i>未添加投放点
+							</div>
+							
+							<!--无优惠券-->
+							<div class="list-block" v-if="isPutting.length == 0">
+								<div class="no-coupon"><i class="iconfont icon-toufangguanli"></i>暂无投放</div>
+							</div>
+							<div class="list-block media-list sortable" v-if="isPutting.length !== 0">
+								<ul>
+									<li v-for="el in isPutting" v-if="!el.merchantNum">
+										<div class="item-content"  @click="openDetail(el)">
+							            	<div class="item-media"><img v-bind:src="imgUrl+typeImg[(el.type_code)]+png" width="80"></div>
+							            	<div class="item-inner">
+							                	<div class="item-title-row">
+							                		<div class="item-title">类型：{{el.type.slice(0,2)}}券</div>
+							                	</div>
+							                	<div class="item-subtitle">{{{'折扣':el.discount+'折','满减':'满'+el.full_amount+'减'+el.minus_amount
+                                            ,'菜品券':el.description}[el.type]}}</div>
+							                	<div class="item-text">投放点：{{el.merchantNum}}</div>
+							                	<div class="item-text">已投放次数：{{el.promotCommercialNum}}</div>
+							              	</div>
+							            </div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div id="tab2" class="page-content infinite-scroll pull-to-refresh-content tab" >
+									<div class="pull-to-refresh-layer">
+									    <div class="preloader"></div>
+									    <div class="pull-to-refresh-arrow"></div>
+								    </div>
+								    <!--无优惠券-->
+									<div class="list-block" v-if="hasHalt.length == 0">
+										<div class="no-coupon"><i class="iconfont icon-toufangguanli"></i>暂无投放</div>
+									</div>
+					        	<div class="list-block media-list stop sortable" v-if="hasHalt.length != 0">
+					        		<ul>
+					        	 		<li v-for="el in hasHalt">
+					        	 			<div class="item-content" @click="openDetail(el)">
+								            	<div class="item-media"><img v-bind:src="imgUrl+typeImg[(el.type_code)]+png" width="80"></div>
+								            	<div class="item-inner">
+								                	<div class="item-title-row">
+								                		<div class="item-title">类型：{{el.type.slice(0,2)}}券</div>
+								                	</div>
+								                	<div class="item-subtitle" >{{{'折扣':el.discount+'折','满减':'满'+el.full_amount+'减'+el.minus_amount
+                                            ,'菜品券':el.description}[el.type]}}
+								                	</div>
+								                	<div class="item-text">总计：{{el.count}}  剩余：{{el.count-el.sold_count}}  已领取：{{el.sold_count}}</div>
+								                	<div class="item-text">有效期：{{el.start_time}}至{{el.end_time}}</div>
+								              	</div>
+								            </div>
+					        	 		</li>
+					        	 	</ul>
+					        	</div>
+							</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="popularCoupon.js"></script>
+</html>

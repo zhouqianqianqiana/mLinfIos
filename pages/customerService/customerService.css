@@ -1,0 +1,22 @@
+.content-block-title{
+	margin:13px 15px;
+}
+.item-content{
+	font-size: 15px;
+}
+.list-block .item-title{
+	font-size: 1.1em;
+}
+
+.content-title{
+	font-size: 17px;
+	color: #000;
+	line-height: 2.5;
+}
+.content-block-inner p{
+	color: #888;
+	font-size: 15px;
+}
+.content-block{
+	margin: 0;
+}

@@ -1,0 +1,16 @@
+.content-block-title{
+				margin-top: 10px;
+			}
+			.list-block.media-list .item-media{
+				width: 44px;
+				height: 44px;
+			}
+			.item-media{
+				background-image: url(../../image/me/mlinf-logo.png);
+				background-size: cover;
+				background-repeat: no-repeat;
+				border-radius: 5px;
+			}
+			.item-after{
+				font-size: 12px;
+			}

@@ -1,0 +1,35 @@
+.weui-uploader__subtitle{
+    color: #576b95;
+    font-size: 14px;
+}
+
+.weui-cells{
+    font-size: 16px;
+}
+
+.time{
+    /*width: 0 !important;
+    height: 0 !important;
+    visibility: hidden;*/
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   height: 43px;
+   opacity: 0;
+}
+
+
+
+/* weui */
+.weui-gallery{
+    z-index: 5000;
+    color: transparent;
+}
+.weui-mask, .weui-mask_transparent{
+	z-index: 5001;
+}
+.weui-dialog{
+	z-index: 5003;
+}

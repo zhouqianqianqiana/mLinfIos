@@ -1,0 +1,16 @@
+.list-block{
+	font-size: 15px;
+}
+.get-code{
+	background: #4cd964;
+	color: #fff;
+}
+.button.button-fill.color-green {
+	margin:2em auto;
+	width: 95%;
+    background: #4cd964;
+    color: #fff;
+}
+html:not(.watch-active-state) .button.button-fill:active{
+	background: #4cd964;
+}

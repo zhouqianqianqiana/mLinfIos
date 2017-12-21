@@ -1,0 +1,36 @@
+.list-block{
+				padding:10px 15px;
+				background: #fff;
+				margin:0;
+			}
+			.list-block .item-content{
+				padding: 0;
+			}
+			.list-block .item-subtitle{
+				font-size: 20px;
+				color: #02bb00;
+			}
+			.list-block .item-text{
+				height: auto;
+			}
+			.list-block .item-inner:after{
+				background: none;
+			}
+			.item-link .item-title{
+				font-size: 16px;
+			}
+			.card{
+				border-top: 1px solid #e5e5e5;
+				padding:10px;
+				margin: 0;
+				font-family: "微软雅黑";
+				box-shadow: none;
+			}
+			.card p{
+				font-size: 14px;
+				line-height: 2;
+			}
+			.list-block .item-after{
+				font-size: .8em;
+				color: #fe5353;
+			}

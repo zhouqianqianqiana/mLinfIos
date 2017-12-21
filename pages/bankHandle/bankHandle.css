@@ -1,0 +1,21 @@
+.full{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	opacity: .2;
+	background: #000;
+}
+.button{
+	width: 95%;
+	margin: 0 auto;
+}
+.button.button-fill.color-green {
+    background: #4cd964;
+    color: #fff;
+}
+html:not(.watch-active-state) .button.button-fill:active{
+	background: #4cd964;
+}

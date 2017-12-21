@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>优惠券详情</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="popularCouponDetail.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">优惠券详情</div>
+						<div class="right">
+							<a href="#" v-if="couponData.status == 'selling'" @click="stop(couponData._id)" class="link" >停用</a>
+							<a href="#" v-if="couponData.status == 'stopped'" @click="start(couponData._id)" class="link" >启用</a>
+						</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="list-block media-list">
+								<div class="item-content">
+					            	<div class="item-media"><img v-bind:src="(couponData.status == 'selling' ? imgUrl : expiredUrl) + typeImg[(couponData.type_code)]+png" width="80"></div>
+					            	<div class="item-inner">
+					                	<div class="item-title-row">
+					                		类型：{{couponData.type.slice(0,2)}}券
+					                		<div v-if="couponData.status == 'stopped'" class="item-after">已停用</div>
+					                		<div v-if="couponData.status == 'expired'" class="item-after">已过期</div>
+					                		<div v-if="couponData.status == 'sold_out'" class="item-after">已领完</div>
+					                		<!--<div v-if="couponData.status == 'expired'" class="item-after">已过期</div>-->
+					                	</div>
+					                		
+					                	<div class="item-subtitle">{{{'折扣':couponData.discount+'折','满减':'满'+couponData.full_amount+'减'+couponData.minus_amount
+                                            ,'菜品券':couponData.description}[couponData.type]}}</div>
+					                	<div class="item-text">总计：{{couponData.count}}     剩余：{{couponData.count - couponData.sold_count}}  已领取：{{couponData.sold_count}}</div>
+					              	</div>
+					           </div>
+							</div>
+							<div v-if="couponData.status == 'selling'" class="list-block" style="padding: 0;">
+								<a href="#" class="item-link item-content" style="padding-left:15px;border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;" @click="addNum(couponData._id,couponData.merchant_id)">
+					            	<div class="item-inner"> 
+						                <div class="item-title">添加数量</div>
+						            </div>
+					            </a>
+							</div>
+							<div v-if="couponData.status == 'selling'" class="list-block" style="padding: 0;">
+								<a href="#" class="item-link item-content" style="padding-left:15px;" @click="MerchantSelect(couponData.commercialId)">
+					            	<div class="item-inner"> 
+						                <div class="item-title">投放点编辑</div>
+						            </div>
+					            </a>
+							</div>
+							<div v-if="couponData.status == 'selling'" class="list-block" style="padding: 0;margin-bottom: 15px;">
+								<a @click="edit(couponData)" href="#" class="item-link item-content" style="padding-left:15px;border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;">
+					            	<div class="item-inner"> 
+						                <div class="item-title">编辑</div>
+						            </div>
+					            </a>
+							</div>
+							<div class="card">
+								<p>有效期：{{couponData.start_time}}至{{couponData.end_time}}</p>
+								<p>优惠区域：无限制</p>
+								<p>使用时间：营业时间</p>
+								<p>店内限制：{{couponData.store_limit_des?couponData.store_limit_des:'无'}} </p>
+								<p>领券当天用：{{couponData.next_day_use?'开启': '未开启'}} </p>
+								<p>分享标题： {{couponData.share_title?couponData.share_title:'无'}}</p>
+								<p>分享内容： {{couponData.share_content?couponData.share_content:'无'}}</p>
+							</div>
+							
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../lib/framework7.js"></script>
+	<script src="../../lib/vue.js"> </script>
+	<script src="../../js/app.js"></script>
+	<script src="../../js/couponHandle.js"></script>
+	<script src="popularCouponDetail.js"></script>
+</html>

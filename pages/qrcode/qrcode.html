@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>店铺二维码</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="qrcode.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+           		 	<div class="navbar-inner navbar-on-center">
+    					<div class="left" close>
+    						<a class="back link" >
+    							<i class="iconfont icon-fenxiang"></i>
+    							<span>返回</span>
+    						</a>
+    					</div>
+    					<div class="center">店铺二维码</div>
+  					</div>
+          		</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="index" class="page">
+						<div class="page-content">
+							<div v-show="haveCode" class="Qrcode" id="qrCode">
+								<img id="qrImg" :src="src" alt="" />
+							</div>
+							<!--空状态-->
+					        <div v-show="!haveCode" class="no-qr">
+					            <div class="no-qr-img"><img src="../../image/qr/no-qr.png" alt=""/></div>
+					            <p>请您绑定店铺二维码</p>
+					        </div>
+							<a href="#" v-show="haveCode" onclick="saveQrcode()" class="button button-big button-fill color-green">保存图片</a>
+							<a href="#" v-show="!haveCode" @click="bindCode" class="button button-big button-fill color-green">绑定二维码</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="qrcode.js"></script>
+</html>

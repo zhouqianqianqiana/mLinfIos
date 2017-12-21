@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>银行卡</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="bankHandle.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">银行卡管理</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="full" v-if="!isEdit"></div>
+							<div class="content-block-title" style="margin: 14px 15px 10px;">*请您如实填写银行卡信息，以防无法提现等情况发生</div>
+							<form class="list-block">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-inner"> 
+								                <div class="item-title label">预留账户名</div>
+								                <div class="item-input">
+								                  <input v-model="bankInfo.account_name" maxlength="4" type="text" placeholder="请输入银行预留名">
+								                </div>
+								              </div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner"> 
+								                <div class="item-title label">预留手机号</div>
+								                <div class="item-input">
+								                  <input type="tel" v-model="bankInfo.telephone" oninput="value=value.replace(/[^\d]/g,'')" placeholder="请输入银行预留手机号">
+								                </div>
+								              </div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner"> 
+								                <div class="item-title label">银行选择</div>
+								                <div class="item-input">
+								                  	<select v-model="bankInfo.name" name="" id="">
+								                  		<option v-for="(el,index) in bankNameList" v-bind:value="el">{{el}}</option>
+								                  	</select>
+								                </div>
+								              </div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner"> 
+								                <div class="item-title label">银行卡号</div>
+								                <div class="item-input">
+								                  <input type="number" v-model="bankInfo.bank_no" oninput="value=value.replace(/[^\d]/g,'')" placeholder="请输入银行卡号">
+								                </div>
+								              </div>
+										</div>
+									</li>
+								</ul>
+							</form>
+							
+							<a href="#" @click="submit" class="button button-big button-fill color-green">保存</a>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<script src="../../lib/framework7.js"></script>
+		<script src="../../lib/vue.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="bankHandle.js"></script>
+	</body>
+</html>

@@ -1,0 +1,129 @@
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.md-month {
+    overflow-x: scroll;
+    background-color: #FFFFFF;
+    height: 3em;
+}
+
+.md-day {
+    padding: .5em 0;
+    color: #888888;
+}
+
+.md-days {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    background-color: #FFFFFF;
+}
+
+.md-month > div, .md-day {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.md-days {
+    display: block;
+    padding-bottom: .8em;
+}
+
+.md-month span, .md-day span, .md-days span {
+    min-width: 14.28%;
+    text-align: center;
+}
+
+.md-month span {
+    padding: .8em 0;
+    border-bottom: 1px solid #d8d8d8;
+    position: relative;
+}
+
+.md-month span:after {
+    content: "";
+    right: 0;
+    bottom: -1px;
+    position: absolute;
+    width: 0;
+    height: 5px;
+    background-color: #223f68;
+    transition: width .1s;
+    -webkit-transition: width .1s;
+}
+
+.md-month span.active:after {
+    width: 100%;
+    left: 0;
+}
+
+.md-month span.md-toMonth ~ span, .md-days span.md-today ~ span {
+    color: #c5c5c5;
+}
+
+.md-days span {
+    padding: .8em 0;
+    position: relative;
+    z-index: 1;
+    transition: color .3s;
+    -webkit-transition: color .3s;
+    display: inline-block;
+}
+
+.md-days span.idle {
+    /*color: #b2b2b2;*/
+}
+
+.md-days span:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    bottom: 0px;
+    left: calc(50% - 2.5px);
+    border-radius: 5px;
+    background-color: transparent;
+    transition: .3s;
+    -webkit-transition: .3s;
+    display: inline-block;
+}
+
+.md-days span.idle:after {
+    background-color: #eb9b54;
+}
+.md-days span.idle{
+	color: #888;
+}
+.md-days span.have:after {
+    background-color: #6494e8;
+}
+
+/*.md-days span.active:not(.idle) {*/
+.md-days span.active {
+    color: #FFFFFF;
+}
+
+.md-days span:before {
+    content: "";
+    position: absolute;
+    top: .5em;
+    right: calc(50% - 1em);
+    width: 2em;
+    height: 2em;
+    background-color: #eb9b54;
+    z-index: -1;
+    border-radius: 50px;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    transition: transform .1s;
+    -webkit-transition: transform .1s;
+    display: inline-block;
+}
+
+/*.md-days span.active:not(.idle):before {*/
+.md-days span.active:before {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+
+}

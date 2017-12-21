@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/framework7.ios.colors.min.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="popularPut.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">投放点</div>
+						<div class="right"><a @click.once="addMerchant" href="#" class="link">{{status?'添加':''}}</a></div>
+					</div>
+				</div>
+				<div class="toolbar">
+		          <a href="#" :class="{'disabled':!check,'color-red': status}" @click="formSubmit" class="button button-big button-fill">{{status?'删除':'添加'}}</a>
+		        </div>
+				<div class="pages  navbar-through toolbar-through">
+					
+					<div class="page page-on-center">
+						<div class="form-select list-block">
+							<div class="select-div">
+								<select v-model="merchantType" name="selectType" id="selectType" >
+									<option selected="" value="">全部</option>
+									<option value="餐饮">餐饮</option>
+			                        <option value="娱乐">娱乐</option>
+			                        <option value="优质推荐">优质推荐</option>
+								</select>
+								<span class="caret"></span>
+							</div>
+							<div class="select-div">
+								<select v-model="sort" name="selectSort" id="selectSort" >
+									<option selected="" value="">离我最近</option>
+									<option value="销量优先">销量优先</option>
+								</select>
+								<span class="caret"></span>
+							</div>
+						</div>
+						<form data-search-list=".search-here" data-search-in=".item-title" class="searchbar searchbar-init">
+					      <div class="searchbar-input">
+					        <input type="search" v-model="merchantName"  placeholder="请输入商家名称"><a href="#" class="searchbar-clear"></a>
+					      </div><a href="#" class="searchbar-cancel">取消</a>
+					    </form>
+						<div class="page-content pull-to-refresh-content infinite-scroll">
+							
+							<div class="pull-to-refresh-layer">
+						      <div class="preloader"></div>
+						      <div class="pull-to-refresh-arrow"></div>
+						    </div>
+							<div class="list-block empty" v-if="merchantList.length == 0">
+		                        <i class="iconfont icon-tubiao_toudixiang"></i>暂无投放点
+		                    </div>
+							
+							
+						    
+						    <div v-if="merchantList.length !== 0" class="list-block media-list">
+						    	<ul>
+						    		<li v-for="el in merchantList">
+						    			<label class="label-checkbox item-content">
+							              <input  type="checkbox" v-bind:value="el._id" v-bind:id="el._id" v-model="merchantIds" name="ks-media-checkbox" v-bind:name="el._id">
+							              <div class="item-media">
+							              	<i class="icon icon-form-checkbox"></i>
+							              	<div class="merchant-img" v-bind:style="{backgroundImage: 'url(' + imgUrl + el.logo + ')'}"></div>
+							              </div>
+							              <div class="item-inner">
+							                <div class="item-title-row">
+							                  <div class="merchant-title">{{el.merchant_name}}</div>
+							                  <div class="item-after"> &lt;{{el.distance.toFixed(2)}}m</div>
+							                </div>
+							                <div class="item-subtitle">{{el.address}}</div>
+							                <div class="item-text">
+							                	月销： {{el.push_num}}单 | 人均： ￥{{el.consume?el.consume:'-'}}
+							                </div>
+							              </div>
+							            </label>
+						    		</li>
+						    	</ul>
+						    </div>
+							<div class="infinite-scroll-preloader" v-if="merchantList.length >= 20" style="display: none;">
+							    <div class="preloader"></div>
+							</div>
+						</div>
+					
+					</div>
+				</div>				
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/couponHandle.js"></script>
+	<script src="popularPut.js"></script>
+</html>

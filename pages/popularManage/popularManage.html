@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>推广管理</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../popularAdv/popularAdv.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">推广管理</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="yiye-account">
+								<div>
+									<p>{{residueNum}}</p>
+									<p>剩余点数</p>
+								</div>
+								<div>
+									<p>{{totalNum}}</p>
+									<p>总派发量</p>
+								</div>
+								<div>
+									<p>{{getCoupon}}</p>
+									<p>领券</p>
+								</div>
+							</div>
+							<div class="list-block">
+								<ul>
+									<li>
+										<a href="#" class="item-link item-content" open-href="../popularCoupon/popularCoupon.html" open-name="popularCoupon" >
+							              <div class="item-media"><img src="../../image/horizontal/icon_01.png"></div>
+							              <div class="item-inner">
+							                <div class="item-title-row">
+							                  优惠券管理
+							                </div>
+							                <div class="item-subtitle">添加优惠券并统计您已投放的优惠券</div>
+							              </div>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="item-link item-content" open-href="../popularAdv/popularAdv.html" open-name="popularAdv" >
+							              <div class="item-media"><img src="../../image/horizontal/gene_01.png"></div>
+							              <div class="item-inner">
+							                <div class="item-title-row">
+							                  广告管理
+							                </div>
+							                <div class="item-subtitle">添加管理并统计您已投放的广告</div>
+							              </div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							
+							<div class="content-block-title">
+								<i class="iconfont icon-shuxian"></i>正在投放
+							</div>
+							<div class="horizontal-list">
+									<div class="no-adver" v-if="isPutting.length ==0">
+										<i class="iconfont icon-toufangguanli"></i>暂无正在投放的广告
+									</div>
+									<div style="width: -webkit-max-content;width: max-content;">
+										<div class="horizontal-item" v-for="el in isPutting" v-if="el.type == 0" @click="openDetail(el)">
+											<i class="g-icon quan-icon"></i>
+											<div class="hori-header">
+												<div><img v-bind:src="imgUrl+typeImg[(el.coupon.type_code)]+png" alt="" /></div>
+												<div>{{el.coupon.type.slice(0,2)}}券</div>
+											</div>
+											<p class="hor-title" >{{{'折扣':'全场' +
+                                            el.coupon.discount+'折','满减':'满'+el.coupon.full_amount+'减'+el.coupon.minus_amount
+                                            ,'菜品券':el.coupon.description}[el.coupon.type]}}</p>
+											
+											<p class="color-aaa">投放点：{{el.merchantNum}}</p>
+											<p class="color-aaa">成功投放：{{el.promotCommercialNum?el.promotCommercialNum:0}}</p>
+										</div>
+										<div class="horizontal-item" v-for="el in isPutting" v-if="el.type == 1" @click="openDetail(el)">
+											<i class="g-icon adver-icon"></i>
+											<div class="hori-header hori-adver" v-bind:style="{backgroundImage: 'url(' + hostImgUrl + el.commercial_detail.pic + ')'}">
+												
+											</div>
+											<p class="hor-title">{{el.title}}</p>
+											<p class="color-aaa">投放点：{{el.merchantNum}}</p>
+											<p class="color-aaa">成功投放：{{el.promotCommercialNum?el.promotCommercialNum:0}}</p>
+										</div>
+										
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="popularManage.js"></script>
+</html>

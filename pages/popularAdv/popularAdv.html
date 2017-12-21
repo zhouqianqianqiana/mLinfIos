@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>广告管理</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<link rel="stylesheet" href="../../css/framework7.ios.min.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="popularAdv.css" />
+	</head>
+	<body>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner navbar-on-center">
+						<div class="left" close>
+							<a href="#" class="back link">
+								<i class="iconfont icon-fenxiang"></i>
+								<span>返回</span>
+							</a>
+						</div>
+						<div class="center">广告管理</div>
+						<div class="right"><a href="#" class="link " @click="addAdver" >添加</a></div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page">
+						<div class="page-content">
+							<div class="content-block-title">
+								<i class="iconfont icon-shuxian"></i>正在投放
+							</div>
+							<div class="horizontal-list">
+								<div class="no-adver" v-if="isPutting.length ==0">
+									<i class="iconfont icon-toufangguanli"></i>暂无正在投放的广告
+								</div>
+								<div v-if="isPutting.length !=0" style="width: -webkit-max-content;width: max-content;">
+									<div class="horizontal-item" v-for="el in isPutting" @click="editAdv(el)">
+										<div v-bind:style="{backgroundImage: 'url(' + imgUrl + el.pic + ')'}" class="hori-header hori-adver">
+											
+										</div>
+										<p class="hor-title">{{el.title}}</p>
+										<p class="color-aaa">投放点：{{el.pushMerchantNum}}</p>
+										<p class="color-aaa">成功投放：{{el.promoteNum?el.promoteNum:0}}</p>
+									</div>
+								</div>
+							</div>
+							<div class="content-block-title">
+								<i class="iconfont icon-shuxian"></i>未添加投放点
+							</div>
+							<div class="horizontal-list">
+									<div class="no-adver" v-if="notPutting.length ==0">
+										<i class="iconfont icon-toufangguanli"></i>暂无未添加投放的广告
+									</div>
+									<div v-if="notPutting.length !=0" style="width: -webkit-max-content;width: max-content;">
+										<div class="horizontal-item" v-for="el in notPutting" @click="editAdv(el)">
+											<div v-bind:style="{backgroundImage: 'url(' + imgUrl + el.pic + ')'}" class="hori-header hori-adver">
+												
+											</div>
+											<p class="hor-title">{{el.title}}</p>
+											<p class="color-aaa">投放点：{{el.pushMerchantNum}}</p>
+											<p class="color-aaa">成功投放：{{el.promoteNum?el.promoteNum:0}}</p>
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>	
+	<script src="../../lib/framework7.js"></script>
+	<script src="../../js/app.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/advHandle.js"></script>
+	<script src="popularAdv.js"></script>
+</html>
